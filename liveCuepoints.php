@@ -19,6 +19,9 @@ try {
     
     $body = $response->getBody();
     dump($body);
+
 } catch (\Exception $e) {
-    dump($e);
+    $response = $e->getResponse();
+    $responseBodyAsString = $response->getBody()->getContents();
+    dump($responseBodyAsString);
 }
